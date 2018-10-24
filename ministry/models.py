@@ -2,8 +2,11 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 '''
-This Model is used to create and save ministry information where members
-belong to!
+	This Model creates the Ministry app.
+	Ministries are used to group christians 
+	in groups accoring to one's preference in
+	the church activities. Groups include the choir,
+	Youth groups, Men Groups, Women groups among other groups.
 '''
 
 class Ministry(models.Model):		
