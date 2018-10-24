@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'events',
     'income',
     'expense',
+    'service',
     'accounts',
     'ministry',
     'pastoralGroup',
