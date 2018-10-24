@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #custom apps
     'accounts',
+    'ministry',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
