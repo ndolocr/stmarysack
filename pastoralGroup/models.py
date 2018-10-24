@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.transaltion import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _
 
 '''
 	This app creates the Pastoral Group.
@@ -11,7 +11,7 @@ from django.utils.transaltion import ugettext_lazy as _
 '''
 
 class PastoralGroup(models.Model):
-	pastoral_group = moodels.CharField(_('Pastoral Group'), max_length=255, blank=False, null=False)
+	pastoral_group = models.CharField(_('Pastoral Group'), max_length=255, blank=False, null=False)
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
 

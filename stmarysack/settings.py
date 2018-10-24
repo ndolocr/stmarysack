@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #custom apps
     'accounts',
     'ministry',
+    'pastoralGroup',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
