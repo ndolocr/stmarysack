@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #custom apps
     'events',
     'income',
+    'expense',
     'accounts',
     'ministry',
     'pastoralGroup',
