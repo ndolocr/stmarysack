@@ -11,12 +11,13 @@ from django.utils.translation import ugettext_lazy as _
 '''
 
 class Event(models.Model):
-	date_to = models.DateField(_('To'))
+	event_name = models.CharField(_('Event Name'), max_length=255, blank=False, null=False)
 	date_from = models.DateField(_('From'))
+	date_to = models.DateField(_('To'))	
 	event_description = models.TextField(_('Event Description'))
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
-	event_name = models.CharField(_('Event Name'), max_length=255, blank=False, null=False)
+	
 
 	class Meta:
 		verbose_name = "Event"
