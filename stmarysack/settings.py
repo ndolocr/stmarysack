@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'ministry',
     'pastoralGroup',
+    'contributionType',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
