@@ -11,7 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 '''
 
 class Ministry(models.Model):
-	user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
 	ministry = models.CharField(_('Ministry'), max_length=255, blank=False,null=False)

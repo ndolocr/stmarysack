@@ -10,7 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 '''
 
 class ChurchAttendance(models.Model):
-	user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
+	created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 	attendance = models.PositiveIntegerField(_('Attendance'), blank=False, null=False)
 	service = models.ForeignKey(Service, on_delete=models.CASCADE)
 	attendance_date = models.DateField(_('Date'), blank=False, null=False)
