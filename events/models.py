@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 '''
@@ -11,6 +12,7 @@ from django.utils.translation import ugettext_lazy as _
 '''
 
 class Event(models.Model):
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 	event_name = models.CharField(_('Event Name'), max_length=255, blank=False, null=False)
 	date_from = models.DateField(_('From'))
 	date_to = models.DateField(_('To'))	

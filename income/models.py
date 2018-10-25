@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 '''
@@ -10,6 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 '''
 
 class Income(models.Model):
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
 	updated_on = models.DateTimeField(_('Updated On'), auto_now=True)
 	created_on = models.DateTimeField(_('Created On'), auto_now_add=True)
 	receipt_no = models.CharField(_('Receipt Number'), max_length=255, blank=True, null=True)
