@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
 
     #custom apps
+    'core',
     'events',
     'income',
     'expense',
