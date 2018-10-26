@@ -54,7 +54,7 @@ class User(AbstractUser):
 
 class Member(models.Model):
 
-    COUNTRY_CODE_CHOICES(
+    COUNTRY_CODE_CHOICES = (
         ('Algeria (+213)', 'Algeria (+213)'),
         ('Andorra (+376)', 'Andorra (+376)'),
         ('Angola (+244)', 'Angola (+244)'),
@@ -271,23 +271,47 @@ class Member(models.Model):
         ('Zimbabwe (+263)', 'Zimbabwe (+263)'),        
     )
 
-    GENDER_CHOICES(
+    GENDER_CHOICES = (
         ('Female', 'Female'),
         ('Male', 'Male'),
     )
 
-    YES_NO_CHOICES(
+    YES_NO_CHOICES = (
         ('No', 'No'),
         ('Yes', 'Yes'),
     )
 
-    YES_NO_NOT_APPLICABLE_CHOICES(
+    YES_NO_NOT_APPLICABLE_CHOICES = (
         ('No', 'No'),
         ('Yes', 'Yes'),
         ('Not Applicable', 'Not Applicable'),
     )
 
+    MARITAL_STATUS_CHOICES = (
+        ('Single', 'Single'),
+        ('Married', 'Married'),
+        ('Divorced', 'Divorced'),
+        ('Separated', 'Separated'),        
+    )
+
+    MAIN_SOURCE_OF_INCOME_CHOICES = (        
+        ('Salaried', 'Salaried'),
+        ('Unemployed', 'Unmeployed'),
+        ('Self Employed', 'Self Employed'),
+    )
+
+    EDUCATION_LEVEL_CHOICES = (
+        ('None', 'None'),
+        ('Pre-Primary', 'Pre-Primary'),
+        ('Primary', 'Primary'),
+        ('Secondary', 'Secondary'),
+        ('Vocational', 'Vocational'),
+        ('Tertiary', 'Tertiary'),
+        ('University', 'University'),
+    )
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.FileField(upload_to='member_profile_images', blank=True)
     registration_number = models.CharField(_('Registration Number'), max_length=255, blank=False, null=False)
     middle_name = models.CharField(_('Middle Name'), max_length=100, blank=True, null=True)
     date_of_birth = models.DateField(_('Date of Birth'), blank=True, null=True)
@@ -295,5 +319,12 @@ class Member(models.Model):
     country_code = models.CharField(_('Country Code'), max_length=100, choices=COUNTRY_CODE_CHOICES, default='Kenya (+254)')
     phone_number = models.PositiveIntegerField(_('Phone Number'))
     baptised = models.CharField(_('Baptised'), max_length=3, choices=YES_NO_CHOICES, default='No')
-    confirmed = models.CharField(_('Comfirmed Member'), max_length=15, choices=YES_NO_NOT_APPLICABLE_CHOICES default='No')
-    communicant = models.CharField(_('Communicant'), max_length=15, choices=YES_NO_NOT_APPLICABLE_CHOICES, default='No')    
+    confirmed = models.CharField(_('Comfirmed Member'), max_length=15, choices=YES_NO_NOT_APPLICABLE_CHOICES, default='No')
+    communicant = models.CharField(_('Communicant'), max_length=15, choices=YES_NO_NOT_APPLICABLE_CHOICES, default='No')
+    educational_level = models.CharField(_('Educational Level'), max_length=15, choices=EDUCATION_LEVEL_CHOICES, default='None')
+    marital_status = models.CharField(_('Marital Status'), max_length=15, choices=MARITAL_STATUS_CHOICES, default='Single')
+    source_of_income = models.CharField(_('Source Of Income'), max_length=15, choices=MAIN_SOURCE_OF_INCOME_CHOICES, default='Unmeployed')
+    parish_of_origin = models.CharField(_('Parish of Origin'), max_length=100, blank=True, null=True)    
+    church_of_origin = models.CharField(_('Church of Origin'), max_length=100, blank=True, null=True)
+    
+
