@@ -1,4 +1,5 @@
 from django.db import models
+from ministry.models import Ministry
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 
@@ -321,10 +322,18 @@ class Member(models.Model):
     baptised = models.CharField(_('Baptised'), max_length=3, choices=YES_NO_CHOICES, default='No')
     confirmed = models.CharField(_('Comfirmed Member'), max_length=15, choices=YES_NO_NOT_APPLICABLE_CHOICES, default='No')
     communicant = models.CharField(_('Communicant'), max_length=15, choices=YES_NO_NOT_APPLICABLE_CHOICES, default='No')
+    ministry = models.ManyToManyField(Ministry, blank=True, null=True)
     educational_level = models.CharField(_('Educational Level'), max_length=15, choices=EDUCATION_LEVEL_CHOICES, default='None')
     marital_status = models.CharField(_('Marital Status'), max_length=15, choices=MARITAL_STATUS_CHOICES, default='Single')
     source_of_income = models.CharField(_('Source Of Income'), max_length=15, choices=MAIN_SOURCE_OF_INCOME_CHOICES, default='Unmeployed')
     parish_of_origin = models.CharField(_('Parish of Origin'), max_length=100, blank=True, null=True)    
     church_of_origin = models.CharField(_('Church of Origin'), max_length=100, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Member'
+        verbose_name_plural = 'Members'
+
+    def __str__(self):
+        return self.registration_number
     
 

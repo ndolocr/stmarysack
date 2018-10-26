@@ -32,11 +32,11 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.auth',    
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.contenttypes',
 
     #custom apps
     'events',
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'service',
     'accounts',
     'ministry',
+    'contribution',
     'pastoralGroup',
     'churchAttendance',
     'contributionType',
